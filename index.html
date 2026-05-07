@@ -3,7 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============================================================ -->
+    <!-- SEO – BALISES PRIMAIRES                                       -->
+    <!-- ============================================================ -->
     <title>Slimane CHABANE | Ingénieur Apprenti – Data & IA chez ACOME</title>
+    <meta name="description" content="Portfolio de Slimane CHABANE, ingénieur apprenti Data & IA chez ACOME et étudiant à l'ENSICAEN. Spécialiste systèmes embarqués, data engineering et développement d'outils métiers industriels.">
+    <meta name="keywords" content="Slimane CHABANE, ingénieur embarqué, data engineering, ENSICAEN, ACOME, systèmes embarqués, STM32, ESP32, ETL, SeaTable, portfolio ingénieur">
+    <meta name="author" content="Slimane CHABANE">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://slimane-chabane.fr/">
+
+    <!-- ============================================================ -->
+    <!-- SEO – OPEN GRAPH (LinkedIn, WhatsApp, réseaux sociaux)       -->
+    <!-- ============================================================ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://slimane-chabane.fr/">
+    <meta property="og:title" content="Slimane CHABANE | Ingénieur Apprenti – Data & IA chez ACOME">
+    <meta property="og:description" content="Étudiant ingénieur à l'ENSICAEN, je travaille chez ACOME sur la structuration de données industrielles, le développement d'outils métiers et l'automatisation de flux de données.">
+    <meta property="og:image" content="photosli1.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_GB">
+    <meta property="og:site_name" content="Portfolio – Slimane CHABANE">
+
+    <!-- ============================================================ -->
+    <!-- SEO – TWITTER CARD                                            -->
+    <!-- ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Slimane CHABANE | Ingénieur Apprenti – Data & IA chez ACOME">
+    <meta name="twitter:description" content="Systèmes embarqués, data engineering et outils métiers industriels. Étudiant ingénieur ENSICAEN en alternance chez ACOME.">
+    <meta name="twitter:image" content="photosli1.jpg">
+
+    <!-- ============================================================ -->
+    <!-- SEO – SCHEMA.ORG JSON-LD (données structurées Google)        -->
+    <!-- ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Slimane CHABANE",
+      "jobTitle": "Ingénieur Apprenti – Data & IA",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "ACOME"
+      },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "ENSICAEN" },
+        { "@type": "CollegeOrUniversity", "name": "Université de Caen Normandie" }
+      ],
+      "knowsLanguage": ["fr", "ar", "en"],
+      "email": "slimane.chabane52@gmail.com",
+      "url": "https://slimane-chabane.fr/",
+      "image": "photosli1.jpg",
+      "description": "Ingénieur apprenti spécialisé en systèmes embarqués et Data/IA, en alternance chez ACOME et étudiant à l'ENSICAEN.",
+      "knowsAbout": ["Systèmes embarqués", "STM32", "ESP32", "Data Engineering", "ETL", "Python", "C", "SeaTable"]
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,11 +67,11 @@
             theme: {
                 extend: {
                     colors: {
-                        brand:    '#2563eb',
-                        accent:   '#06b6d4',
-                        darkBg:   '#080f1a',
-                        cardBg:   '#101c2e',
-                        border:   '#1e2f47',
+                        brand:  '#2563eb',
+                        accent: '#06b6d4',
+                        darkBg: '#080f1a',
+                        cardBg: '#101c2e',
+                        border: '#1e2f47',
                     },
                     fontFamily: {
                         display: ['Syne', 'sans-serif'],
@@ -27,153 +82,271 @@
         }
     </script>
 
-    <!-- Alpine.js pour la gestion des données -->
+    <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- ========================================================= -->
-    <!-- DONNÉES DU SITE (MACROS)       
-    <!-- ========================================================= -->
+    <!-- ============================================================ -->
+    <!-- DONNÉES DU PORTFOLIO – MODIFIE ICI UNIQUEMENT                -->
+    <!-- ============================================================ -->
     <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('portfolio', () => ({
-                // 1. En-tête & Profil
-                profil: {
-                    prenom: "Slimane",
-                    nom: "CHABANE",
-                    initiales: "SC.",
-                    poste: "Ingénieur Data & IA – Apprentissage chez",
-                    entreprise: "ACOME",
-                    description: "Étudiant ingénieur à l'ENSICAEN, je travaille chez ACOME sur la structuration de données industrielles, le développement d'outils métiers et l'automatisation de flux de données. Passionné par les systèmes embarqués et les défis techniques concrets.",
-                    photo: "photosli1.jpg",
-                    email: "slimane.chabane52@gmail.com"
-                },
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('portfolio', () => ({
 
-                // 2. Formations
-                formations: [
-                    {
-                        titre: "Diplôme d'Ingénieur – Électronique communicante & Systèmes Embarqués",
-                        ecole: "ENSICAEN · Caen",
-                        dates: "2025 – 2028",
-                        description: "Formation axée sur la conception de systèmes embarqués : programmation bas-niveau (C/C++), protocoles de communication, capteurs et systèmes temps réel. En alternance avec ACOME."
-                    },
-                    {
-                        titre: "Licence EEEA – Électronique, Énergie Électrique & Automatique",
-                        ecole: "Université de Caen Normandie",
-                        dates: "2022 – 2025",
-                        description: "Solide base en électronique analogique/numérique, systèmes embarqués et automatique. Réalisation de projets techniques tout au long du cursus et participation à des événements scientifiques."
-                    },
-                    {
-                        titre: "Baccalauréat Scientifique – Mention Bien",
-                        ecole: "Lycée Said Mozarine · Alger",
-                        dates: "2020",
-                        description: "" 
-                    }
-                ],
+            /* ---- Langue active ---- */
+            lang: 'fr',
 
-                // 3. Engagement (Poste + Bénévolat)
-                engagement: {
-                    poste: {
-                        titre: "Ingénieur Data & IA – Apprentissage",
-                        entrepriseDates: "ACOME · 2025 – Actuel",
-                        description: "Structuration de données industrielles, développement d'outils métiers et automatisation de flux de données au sein d'un groupe industriel câblier."
-                    },
-                    benevolat: {
-                        titre: "Bénévole – Secours Populaire Français",
-                        dates: "Octobre 2022 – Actuel",
-                        description: "Accueil et accompagnement des bénéficiaires, distribution alimentaire, animation d'ateliers et gestion logistique des stocks."
+            /* ---- Textes UI bilingues ---- */
+            ui: {
+                fr: {
+                    nav: ['Formation', 'Expériences', 'Compétences', 'Contact'],
+                    navContact: 'Me contacter',
+                    heroBadge: 'Portfolio Professionnel',
+                    heroBtn1: 'Voir mes projets',
+                    heroBtn2: 'Me contacter',
+                    aboutTitle: 'Parcours Académique',
+                    engagementTitle: 'Engagement',
+                    enPoste: 'En poste',
+                    altLabel: 'Alternance chez',
+                    projectsTitle: 'Projets en Entreprise',
+                    projectsSubtitle: "Missions réalisées dans le cadre de mon apprentissage.",
+                    persoLabel: 'Hors entreprise',
+                    persoTitle: 'Projets Académiques & Personnels',
+                    skillsTitle: 'Compétences Techniques',
+                    contactLabel: 'Contact',
+                    contactTitle: 'Me contacter',
+                    contactDesc: "N'hésitez pas à me contacter directement par e-mail pour échanger autour de l'ingénierie des données, des systèmes embarqués ou de mes projets techniques.",
+                    footerRight: 'Tous droits réservés',
+                    footerRole: 'Ingénieur Apprenti · ENSICAEN ×',
+                    skillLabels: {
+                        langages: 'Langages', programmation: 'Programmation',
+                        embarque: 'Embarqué', systemes: 'Systèmes embarqués',
+                        simulation: 'Simulation', outils: 'Outils & Prototypage',
+                        data: 'Data & Bureautique', collaboration: 'Outils data & collaboration',
+                        langues: 'Langues'
                     }
                 },
-
-                // 4. Projets en Entreprise (ACOME)
-                projetsEntreprise: [
-                    {
-                        icone: "🗄️",
-                        titre: "Architecture & Modélisation de base de données",
-                        description: "Migration de données industrielles dispersées vers une base relationnelle centralisée sous SeaTable. Modélisation des paramètres de 15 lignes de production et automatisation de la génération de fiches techniques (17 modèles documentaires).",
-                        tags: ["Modélisation de données", "SeaTable", "Automatisation", "Conduite du changement"],
-                        couleur: "blue" // Détermine la couleur de l'icône
-                    },
-                    {
-                        icone: "⚙️",
-                        titre: "Portail Qualité – Application Web Métier",
-                        description: "Conception d'une Single Page Application 100 % hors-ligne pour la consultation des tolérances qualité en atelier, en remplacement d'un ERP obsolète. Interface anti-erreur (Poka-Yoke), algorithmes de tri sémantique et conformité aux normes internationales IEC.",
-                        tags: ["Vanilla JS", "HTML/CSS", "UI/UX", "Poka-Yoke"],
-                        couleur: "cyan"
-                    },
-                    {
-                        icone: "🔁",
-                        titre: "Data Engineering & Automatisation des flux",
-                        description: "Développement d'un pipeline ETL assurant la liaison sécurisée entre le Bureau d'Études et les lignes de production : extraction, nettoyage et chargement automatisé des données techniques.",
-                        tags: ["ETL", "Pipeline de données", "Nettoyage de données"],
-                        couleur: "indigo"
+                en: {
+                    nav: ['Education', 'Experience', 'Skills', 'Contact'],
+                    navContact: 'Contact me',
+                    heroBadge: 'Professional Portfolio',
+                    heroBtn1: 'View my projects',
+                    heroBtn2: 'Contact me',
+                    aboutTitle: 'Academic Background',
+                    engagementTitle: 'Involvement',
+                    enPoste: 'Currently employed',
+                    altLabel: 'Apprenticeship at',
+                    projectsTitle: 'Company Projects',
+                    projectsSubtitle: "Work carried out during my engineering apprenticeship.",
+                    persoLabel: 'Outside the company',
+                    persoTitle: 'Academic & Personal Projects',
+                    skillsTitle: 'Technical Skills',
+                    contactLabel: 'Contact',
+                    contactTitle: 'Get in touch',
+                    contactDesc: "Feel free to reach out by email to discuss data engineering, embedded systems, or any of my technical projects.",
+                    footerRight: 'All rights reserved',
+                    footerRole: 'Apprentice Engineer · ENSICAEN ×',
+                    skillLabels: {
+                        langages: 'Languages', programmation: 'Programming',
+                        embarque: 'Embedded', systemes: 'Embedded systems',
+                        simulation: 'Simulation', outils: 'Tools & Prototyping',
+                        data: 'Data & Office', collaboration: 'Data & collaboration tools',
+                        langues: 'Languages spoken'
                     }
-                ],
-
-                // 5. Projets Personnels/Académiques
-                projetsPerso: [
-                    {
-                        titre: "CLOBOT 1.0 – Voiture autonome de livraison",
-                        date: "2025",
-                        description: "Robot suiveur de ligne à deux modes de conduite (automatique / télécommandé) : vision par caméra ESP32-CAM, tapis roulant embarqué, contrôle Arduino. Projet réalisé en équipe dans le cadre du cursus ingénieur.",
-                        borderClass: "border-l-brand"
-                    },
-                    {
-                        titre: "Système de comptage de personnes",
-                        date: "2024",
-                        description: "Système autonome de mesure de flux : barrières laser, photorésistances, microcontrôleur Arduino Nano et affichage 7 segments. Conçu pour mesurer et afficher le nombre de personnes présentes dans un espace en temps réel.",
-                        borderClass: "border-l-accent"
-                    }
-                ],
-
-                // 6. Compétences Techniques
-                competences: {
-                    langages: "C, Python, Assembleur, MATLAB, LaTeX",
-                    embarque: "STM32, EFM8SB1, ESP32, Arduino – protocoles SPI, I²C, UART, CAN",
-                    simulation: "LTSpice, Simulink, SolidWorks",
-                    data: "Excel, PowerPoint, Word, SeaTable",
-                    langues: [
-                        { nom: "Français", niveau: "Bilingue" },
-                        { nom: "Arabe", niveau: "Langue maternelle" },
-                        { nom: "Anglais", niveau: "Niveau professionnel" }
-                    ]
-                },
-
-                // 7. Contact (Textes Neutres et Professionnels)
-                contact: {
-                    titre: "Me contacter",
-                    description: ""
                 }
-            }))
-        })
+            },
+
+            get t() { return this.ui[this.lang]; },
+
+            /* ---- 1. Profil (données fixes) ---- */
+            profil: {
+                prenom: "Slimane",
+                nom: "CHABANE",
+                initiales: "SC.",
+                email: "slimane.chabane52@gmail.com",
+                photo: "photosli1.jpg",
+                poste: {
+                    fr: "Ingénieur Data & IA – Apprentissage chez",
+                    en: "Data & AI Engineer Apprentice at"
+                },
+                description: {
+                    fr: "Étudiant ingénieur à l'ENSICAEN, je travaille chez ACOME sur la structuration de données industrielles, le développement d'outils métiers et l'automatisation de flux de données. Passionné par les systèmes embarqués et les défis techniques concrets.",
+                    en: "Engineering student at ENSICAEN, I work at ACOME on structuring industrial data, building business tools and automating data flows. Passionate about embedded systems and hands-on technical challenges."
+                },
+                entreprise: "ACOME"
+            },
+
+            /* ---- 2. Formations ---- */
+            formations: [
+                {
+                    titre: {
+                        fr: "Diplôme d'Ingénieur – Électronique communicante & Systèmes Embarqués",
+                        en: "Engineering Degree – Connected Electronics & Embedded Systems"
+                    },
+                    ecole: "ENSICAEN · Caen",
+                    dates: "2025 – 2028",
+                    description: {
+                        fr: "Formation axée sur la conception de systèmes embarqués : programmation bas-niveau (C/C++), protocoles de communication, capteurs et systèmes temps réel. En alternance avec ACOME.",
+                        en: "Focus on embedded system design: low-level programming (C/C++), communication protocols, sensors and real-time systems. Work-study programme with ACOME."
+                    }
+                },
+                {
+                    titre: {
+                        fr: "Licence EEEA – Électronique, Énergie Électrique & Automatique",
+                        en: "BSc EEEA – Electronics, Electrical Energy & Automation"
+                    },
+                    ecole: "Université de Caen Normandie",
+                    dates: "2022 – 2025",
+                    description: {
+                        fr: "Solide base en électronique analogique/numérique, systèmes embarqués et automatique. Réalisation de projets techniques tout au long du cursus et participation à des événements scientifiques.",
+                        en: "Strong foundation in analogue/digital electronics, embedded systems and automation. Hands-on technical projects throughout the programme and participation in scientific events."
+                    }
+                },
+                {
+                    titre: {
+                        fr: "Baccalauréat Scientifique – Mention Bien",
+                        en: "Scientific Baccalaureate – Honours"
+                    },
+                    ecole: "Lycée Said Mozarine · Alger",
+                    dates: "2020",
+                    description: { fr: "", en: "" }
+                }
+            ],
+
+            /* ---- 3. Engagement ---- */
+            engagement: {
+                poste: {
+                    titre: {
+                        fr: "Ingénieur Data & IA – Apprentissage",
+                        en: "Data & AI Engineer – Apprenticeship"
+                    },
+                    entrepriseDates: "ACOME · 2025 – Actuel / Present",
+                    description: {
+                        fr: "Structuration de données industrielles, développement d'outils métiers et automatisation de flux de données au sein d'un groupe industriel câblier.",
+                        en: "Industrial data structuring, business tool development and data flow automation within a leading cable manufacturing group."
+                    }
+                },
+                benevolat: {
+                    titre: {
+                        fr: "Bénévole – Secours Populaire Français",
+                        en: "Volunteer – Secours Populaire Français"
+                    },
+                    dates: "Oct. 2022 – Actuel / Present",
+                    description: {
+                        fr: "Accueil et accompagnement des bénéficiaires, distribution alimentaire, animation d'ateliers et gestion logistique des stocks.",
+                        en: "Reception and support for beneficiaries, food distribution, workshop facilitation and logistics management."
+                    }
+                }
+            },
+
+            /* ---- 4. Projets entreprise ---- */
+            projetsEntreprise: [
+                {
+                    icone: "🗄️",
+                    couleur: "blue",
+                    titre: {
+                        fr: "Architecture & Modélisation de base de données",
+                        en: "Database Architecture & Modelling"
+                    },
+                    description: {
+                        fr: "Migration de données industrielles dispersées vers une base relationnelle centralisée sous SeaTable. Modélisation des paramètres de 15 lignes de production et automatisation de la génération de fiches techniques (17 modèles documentaires).",
+                        en: "Migration of scattered industrial data to a centralised relational database in SeaTable. Parameter modelling for 15 production lines and automated generation of technical datasheets (17 document templates)."
+                    },
+                    tags: ["Modélisation de données / Data Modelling", "SeaTable", "Automatisation / Automation", "Conduite du changement / Change Management"]
+                },
+                {
+                    icone: "⚙️",
+                    couleur: "cyan",
+                    titre: {
+                        fr: "Portail Qualité – Application Web Métier",
+                        en: "Quality Portal – Business Web Application"
+                    },
+                    description: {
+                        fr: "Conception d'une Single Page Application 100 % hors-ligne pour la consultation des tolérances qualité en atelier, en remplacement d'un ERP obsolète. Interface anti-erreur (Poka-Yoke), algorithmes de tri sémantique et conformité aux normes internationales IEC.",
+                        en: "Design of a fully offline Single Page Application for shop-floor quality tolerance lookup, replacing an obsolete ERP. Error-proofing interface (Poka-Yoke), semantic sorting algorithms and IEC international standard compliance."
+                    },
+                    tags: ["Vanilla JS", "HTML/CSS", "UI/UX", "Poka-Yoke"]
+                },
+                {
+                    icone: "🔁",
+                    couleur: "indigo",
+                    titre: {
+                        fr: "Data Engineering & Automatisation des flux",
+                        en: "Data Engineering & Flow Automation"
+                    },
+                    description: {
+                        fr: "Développement d'un pipeline ETL assurant la liaison sécurisée entre le Bureau d'Études et les lignes de production : extraction, nettoyage et chargement automatisé des données techniques.",
+                        en: "Development of an ETL pipeline securing the link between the Engineering Office and production lines: automated extraction, cleaning and loading of technical data."
+                    },
+                    tags: ["ETL", "Pipeline de données / Data Pipeline", "Nettoyage de données / Data Cleaning"]
+                }
+            ],
+
+            /* ---- 5. Projets perso ---- */
+            projetsPerso: [
+                {
+                    borderClass: "border-l-brand",
+                    date: "2025",
+                    titre: {
+                        fr: "CLOBOT 1.0 – Voiture autonome de livraison",
+                        en: "CLOBOT 1.0 – Autonomous Delivery Vehicle"
+                    },
+                    description: {
+                        fr: "Robot suiveur de ligne à deux modes de conduite (automatique / télécommandé) : vision par caméra ESP32-CAM, tapis roulant embarqué, contrôle Arduino. Projet réalisé en équipe dans le cadre du cursus ingénieur.",
+                        en: "Line-following robot with two driving modes (autonomous / remote-controlled): ESP32-CAM vision, onboard conveyor belt, Arduino control. Team project within the engineering programme."
+                    }
+                },
+                {
+                    borderClass: "border-l-accent",
+                    date: "2024",
+                    titre: {
+                        fr: "Système de comptage de personnes",
+                        en: "People Counting System"
+                    },
+                    description: {
+                        fr: "Système autonome de mesure de flux : barrières laser, photorésistances, microcontrôleur Arduino Nano et affichage 7 segments. Conçu pour mesurer et afficher le nombre de personnes présentes dans un espace en temps réel.",
+                        en: "Autonomous flow measurement system: laser barriers, photoresistors, Arduino Nano microcontroller and 7-segment display. Designed to measure and display in real time the number of people in a given space."
+                    }
+                }
+            ],
+
+            /* ---- 6. Compétences ---- */
+            competences: {
+                langages: "C, Python, Assembleur, MATLAB, LaTeX",
+                embarque: "STM32, EFM8SB1, ESP32, Arduino – protocoles SPI, I²C, UART, CAN",
+                simulation: "LTSpice, Simulink, SolidWorks",
+                data: "Excel, PowerPoint, Word, SeaTable",
+                langues: [
+                    { nom: { fr: "Français", en: "French" },   niveau: { fr: "Bilingue",          en: "Bilingual" } },
+                    { nom: { fr: "Arabe",    en: "Arabic" },   niveau: { fr: "Langue maternelle", en: "Native language" } },
+                    { nom: { fr: "Anglais",  en: "English" },  niveau: { fr: "Niveau professionnel", en: "Professional level" } }
+                ]
+            }
+        }))
+    })
     </script>
 
     <style>
         * { box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; background: #080f1a; color: #94a3b8; }
 
-        /* ---- Grain overlay ---- */
+        /* Grain overlay */
         body::before {
-            content: '';
-            position: fixed; inset: 0; pointer-events: none; z-index: 999;
+            content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 999;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
             opacity: 0.4;
         }
 
-        /* ---- Glow orbs ---- */
-        .orb {
-            position: absolute; border-radius: 9999px;
-            filter: blur(120px); pointer-events: none; z-index: 0;
-        }
+        .orb { position: absolute; border-radius: 9999px; filter: blur(120px); pointer-events: none; z-index: 0; }
 
-        /* ---- Section fade-in ---- */
+        /* Scroll reveal */
         .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* ---- Timeline ---- */
+        /* Timeline */
         .timeline-item { border-left: 2px solid #1e2f47; padding-left: 1.5rem; position: relative; }
         .timeline-item::before {
             content: ''; position: absolute; left: -5px; top: 6px;
@@ -181,7 +354,7 @@
             background: #2563eb; border: 2px solid #080f1a;
         }
 
-        /* ---- Tag ---- */
+        /* Tag */
         .tag {
             display: inline-block; padding: 3px 12px; font-size: .72rem; font-weight: 500;
             border-radius: 999px; border: 1px solid #1e2f47; color: #64748b;
@@ -189,14 +362,14 @@
         }
         .tag:hover { border-color: #2563eb; color: #93c5fd; }
 
-        /* ---- Card ---- */
+        /* Card */
         .card {
             background: #101c2e; border: 1px solid #1e2f47; border-radius: 16px;
             transition: border-color .3s, box-shadow .3s;
         }
         .card:hover { border-color: #2563eb40; box-shadow: 0 0 40px #2563eb15; }
 
-        /* ---- Email placeholder ---- */
+        /* Email */
         .email-badge {
             display: inline-flex; align-items: center; gap: 8px;
             padding: 10px 20px; border-radius: 10px;
@@ -208,201 +381,251 @@
 
         h2.section-title {
             font-family: 'Syne', sans-serif;
-            font-size: 2rem; font-weight: 700; color: #f1f5f9;
-            margin-bottom: 2.5rem;
+            font-size: 2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 2.5rem;
         }
 
-        /* ---- Smooth underline on nav links ---- */
+        /* Nav underline */
         nav a.nav-link { position: relative; padding-bottom: 2px; }
         nav a.nav-link::after {
             content: ''; position: absolute; bottom: 0; left: 0;
-            width: 0; height: 1px; background: #2563eb;
-            transition: width .25s ease;
+            width: 0; height: 1px; background: #2563eb; transition: width .25s ease;
         }
         nav a.nav-link:hover::after { width: 100%; }
+
+        /* Lang switch */
+        .lang-btn {
+            padding: 4px 12px; border-radius: 8px; font-size: .8rem; font-weight: 600;
+            transition: all .2s; cursor: pointer; border: 1px solid transparent;
+        }
+        .lang-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+        .lang-btn:not(.active) { color: #64748b; border-color: #1e2f47; }
+        .lang-btn:not(.active):hover { color: #94a3b8; border-color: #2563eb40; }
     </style>
 </head>
 
-<body x-data="portfolio">
+<body x-data="portfolio" :lang="lang">
 
-<!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border/50" style="background:rgba(8,15,26,.85)">
+<!-- ================================================== -->
+<!-- NAV                                                 -->
+<!-- ================================================== -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border/50" style="background:rgba(8,15,26,.85)" role="navigation" aria-label="Navigation principale">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <span class="font-display font-bold text-white text-lg tracking-tight" x-text="profil.initiales"></span>
+        <span class="font-display font-bold text-white text-lg tracking-tight" x-text="profil.initiales" aria-label="Slimane CHABANE"></span>
+
+        <!-- Liens nav -->
         <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-            <a href="#about" class="nav-link hover:text-white transition">Formation</a>
-            <a href="#projects" class="nav-link hover:text-white transition">Expériences</a>
-            <a href="#skills" class="nav-link hover:text-white transition">Compétences</a>
-            <a href="#contact" class="nav-link hover:text-white transition">Contact</a>
+            <a href="#about"    class="nav-link hover:text-white transition" x-text="t.nav[0]"></a>
+            <a href="#projects" class="nav-link hover:text-white transition" x-text="t.nav[1]"></a>
+            <a href="#skills"   class="nav-link hover:text-white transition" x-text="t.nav[2]"></a>
+            <a href="#contact"  class="nav-link hover:text-white transition" x-text="t.nav[3]"></a>
         </div>
-        <a href="#contact" class="text-sm font-semibold px-5 py-2 rounded-lg border border-brand text-brand hover:bg-brand hover:text-white transition duration-250">
-            Me contacter
-        </a>
+
+        <div class="flex items-center gap-3">
+            <!-- Switch FR / EN -->
+            <div class="flex items-center gap-1 bg-cardBg border border-border rounded-lg p-1" role="group" aria-label="Langue / Language">
+                <button class="lang-btn" :class="lang === 'fr' ? 'active' : ''" @click="lang = 'fr'" aria-pressed="lang === 'fr'">FR</button>
+                <button class="lang-btn" :class="lang === 'en' ? 'active' : ''" @click="lang = 'en'" aria-pressed="lang === 'en'">EN</button>
+            </div>
+            <!-- CTA -->
+            <a href="#contact" class="hidden md:inline-block text-sm font-semibold px-5 py-2 rounded-lg border border-brand text-brand hover:bg-brand hover:text-white transition" x-text="t.navContact"></a>
+        </div>
     </div>
 </nav>
 
-<!-- HERO -->
+<!-- ================================================== -->
+<!-- HERO                                               -->
+<!-- ================================================== -->
 <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
     <div class="orb w-96 h-96 bg-blue-600/20 top-20 -left-32"></div>
     <div class="orb w-72 h-72 bg-cyan-500/10 bottom-20 right-10"></div>
 
     <div class="container mx-auto px-6 relative z-10 flex flex-col-reverse md:flex-row items-center gap-16">
         <div class="md:w-3/5">
-            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Portfolio Professionnel</p>
+            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-4" x-text="t.heroBadge"></p>
+
             <h1 class="font-display text-5xl md:text-6xl font-extrabold text-white leading-[1.1] mb-6">
                 <span x-text="profil.prenom"></span><br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent" x-text="profil.nom"></span>
             </h1>
+
+            <!-- Poste actuel badge -->
             <div class="inline-flex items-center gap-3 bg-cardBg border border-border rounded-xl px-5 py-3 mb-6">
                 <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                <span class="text-white font-medium text-sm"><span x-text="profil.poste"></span> <span class="text-accent font-bold" x-text="profil.entreprise"></span></span>
+                <span class="text-white font-medium text-sm">
+                    <span x-text="profil.poste[lang]"></span>
+                    <span class="text-accent font-bold ml-1" x-text="profil.entreprise"></span>
+                </span>
             </div>
-            <p class="text-slate-400 text-lg leading-relaxed max-w-xl mb-10" x-text="profil.description"></p>
+
+            <p class="text-slate-400 text-lg leading-relaxed max-w-xl mb-10" x-text="profil.description[lang]"></p>
+
             <div class="flex flex-wrap gap-4">
-                <a href="#projects" class="bg-brand hover:bg-blue-700 text-white font-semibold py-3 px-7 rounded-lg transition duration-250">
-                    Voir mes projets
-                </a>
-                <a href="#contact" class="border border-border hover:border-brand text-slate-300 hover:text-white font-semibold py-3 px-7 rounded-lg transition duration-250">
-                    Me contacter
-                </a>
+                <a href="#projects" class="bg-brand hover:bg-blue-700 text-white font-semibold py-3 px-7 rounded-lg transition" x-text="t.heroBtn1"></a>
+                <a href="#contact"  class="border border-border hover:border-brand text-slate-300 hover:text-white font-semibold py-3 px-7 rounded-lg transition" x-text="t.heroBtn2"></a>
             </div>
         </div>
+
+        <!-- Photo -->
         <div class="md:w-2/5 flex justify-center">
             <div class="relative">
                 <div class="absolute inset-0 rounded-full bg-gradient-to-br from-brand/30 to-accent/20 blur-2xl scale-110"></div>
-                <img :src="profil.photo" :alt="profil.prenom + ' ' + profil.nom" class="relative w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-2 border-border shadow-2xl">
+                <img :src="profil.photo" :alt="profil.prenom + ' ' + profil.nom"
+                     class="relative w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-2 border-border shadow-2xl"
+                     loading="eager" width="288" height="288">
             </div>
         </div>
     </div>
 </header>
 
-<!-- FORMATION & BÉNÉVOLAT -->
-<section id="about" class="py-24 bg-cardBg border-t border-border">
+<!-- ================================================== -->
+<!-- FORMATION & ENGAGEMENT                             -->
+<!-- ================================================== -->
+<section id="about" class="py-24 bg-cardBg border-t border-border" aria-label="Parcours académique et engagement">
     <div class="container mx-auto px-6 grid md:grid-cols-3 gap-16">
+
+        <!-- Formations -->
         <div class="md:col-span-2 reveal">
-            <h2 class="section-title">Parcours Académique</h2>
+            <h2 class="section-title" x-text="t.aboutTitle"></h2>
             <div class="space-y-10">
-                <template x-for="formation in formations">
-                    <div class="timeline-item">
-                        <h3 class="text-white font-semibold text-lg" x-text="formation.titre"></h3>
+                <template x-for="formation in formations" :key="formation.ecole">
+                    <article class="timeline-item">
+                        <h3 class="text-white font-semibold text-lg" x-text="formation.titre[lang]"></h3>
                         <p class="text-brand text-sm font-medium mt-1 mb-3">
                             <span x-text="formation.ecole"></span> &nbsp;|&nbsp; <span x-text="formation.dates"></span>
                         </p>
-                        <p class="text-slate-400 text-sm leading-relaxed" x-show="formation.description !== ''" x-text="formation.description"></p>
-                    </div>
+                        <p class="text-slate-400 text-sm leading-relaxed"
+                           x-show="formation.description[lang] !== ''"
+                           x-text="formation.description[lang]"></p>
+                    </article>
                 </template>
             </div>
         </div>
 
+        <!-- Engagement -->
         <div class="reveal">
-            <h2 class="section-title">Engagement</h2>
-            <!-- Poste -->
+            <h2 class="section-title" x-text="t.engagementTitle"></h2>
+
+            <!-- Poste actuel -->
             <div class="card p-6 mb-6">
                 <div class="flex items-center gap-2 mb-3">
                     <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                    <span class="text-green-400 text-xs font-semibold uppercase tracking-wide">En poste</span>
+                    <span class="text-green-400 text-xs font-semibold uppercase tracking-wide" x-text="t.enPoste"></span>
                 </div>
-                <h3 class="text-white font-semibold" x-text="engagement.poste.titre"></h3>
+                <h3 class="text-white font-semibold" x-text="engagement.poste.titre[lang]"></h3>
                 <p class="text-brand text-sm font-medium my-1" x-text="engagement.poste.entrepriseDates"></p>
-                <p class="text-slate-400 text-sm leading-relaxed mt-2" x-text="engagement.poste.description"></p>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2" x-text="engagement.poste.description[lang]"></p>
             </div>
+
             <!-- Bénévolat -->
             <div class="card p-6">
-                <h3 class="text-white font-semibold" x-text="engagement.benevolat.titre"></h3>
+                <h3 class="text-white font-semibold" x-text="engagement.benevolat.titre[lang]"></h3>
                 <p class="text-brand text-sm font-medium my-1" x-text="engagement.benevolat.dates"></p>
-                <p class="text-slate-400 text-sm leading-relaxed mt-2" x-text="engagement.benevolat.description"></p>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2" x-text="engagement.benevolat.description[lang]"></p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EXPÉRIENCES EN ENTREPRISE -->
-<section id="projects" class="py-24">
+<!-- ================================================== -->
+<!-- PROJETS ENTREPRISE                                  -->
+<!-- ================================================== -->
+<section id="projects" class="py-24" aria-label="Projets en entreprise">
     <div class="container mx-auto px-6">
         <div class="reveal mb-12">
-            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-2" x-text="'Alternance chez ' + profil.entreprise"></p>
-            <h2 class="section-title mb-3">Projets en Entreprise</h2>
-            <p class="text-slate-500 text-sm max-w-2xl">Missions réalisées dans le cadre de mon apprentissage.</p>
+            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-2">
+                <span x-text="t.altLabel"></span> <span x-text="profil.entreprise"></span>
+            </p>
+            <h2 class="section-title mb-3" x-text="t.projectsTitle"></h2>
+            <p class="text-slate-500 text-sm max-w-2xl" x-text="t.projectsSubtitle"></p>
         </div>
 
         <div class="grid lg:grid-cols-3 gap-6 reveal">
-            <template x-for="projet in projetsEntreprise">
-                <div class="card p-7 flex flex-col">
+            <template x-for="projet in projetsEntreprise" :key="projet.titre.fr">
+                <article class="card p-7 flex flex-col">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl"
                          :class="{
-                            'bg-blue-600/20 text-brand': projet.couleur === 'blue',
-                            'bg-cyan-600/20 text-accent': projet.couleur === 'cyan',
+                            'bg-blue-600/20 text-brand':     projet.couleur === 'blue',
+                            'bg-cyan-600/20 text-accent':    projet.couleur === 'cyan',
                             'bg-indigo-600/20 text-indigo-400': projet.couleur === 'indigo'
-                         }" x-text="projet.icone"></div>
-                    <h3 class="text-white font-semibold text-lg mb-3" x-text="projet.titre"></h3>
-                    <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6" x-text="projet.description"></p>
+                         }" x-text="projet.icone" aria-hidden="true"></div>
+                    <h3 class="text-white font-semibold text-lg mb-3" x-text="projet.titre[lang]"></h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6" x-text="projet.description[lang]"></p>
                     <div class="flex flex-wrap gap-2">
-                        <template x-for="tag in projet.tags">
+                        <template x-for="tag in projet.tags" :key="tag">
                             <span class="tag" x-text="tag"></span>
                         </template>
                     </div>
-                </div>
+                </article>
             </template>
         </div>
     </div>
 </section>
 
-<!-- PROJETS ACADÉMIQUES & PERSONNELS -->
-<section class="py-24 bg-cardBg border-t border-border">
+<!-- ================================================== -->
+<!-- PROJETS PERSO                                       -->
+<!-- ================================================== -->
+<section class="py-24 bg-cardBg border-t border-border" aria-label="Projets académiques et personnels">
     <div class="container mx-auto px-6">
         <div class="reveal mb-12">
-            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-2">Hors entreprise</p>
-            <h2 class="section-title">Projets Académiques &amp; Personnels</h2>
+            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-2" x-text="t.persoLabel"></p>
+            <h2 class="section-title" x-text="t.persoTitle"></h2>
         </div>
         <div class="grid md:grid-cols-2 gap-6 reveal">
-            <template x-for="projet in projetsPerso">
-                <div class="card p-7 border-l-4" :class="projet.borderClass">
+            <template x-for="projet in projetsPerso" :key="projet.titre.fr">
+                <article class="card p-7 border-l-4" :class="projet.borderClass">
                     <div class="flex justify-between items-start mb-3">
-                        <h3 class="text-white font-semibold text-lg" x-text="projet.titre"></h3>
+                        <h3 class="text-white font-semibold text-lg" x-text="projet.titre[lang]"></h3>
                         <span class="text-xs font-bold bg-darkBg text-slate-400 px-3 py-1 rounded-full border border-border" x-text="projet.date"></span>
                     </div>
-                    <p class="text-slate-400 text-sm leading-relaxed" x-text="projet.description"></p>
-                </div>
+                    <p class="text-slate-400 text-sm leading-relaxed" x-text="projet.description[lang]"></p>
+                </article>
             </template>
         </div>
     </div>
 </section>
 
-<!-- COMPÉTENCES -->
-<section id="skills" class="py-24 border-t border-border">
+<!-- ================================================== -->
+<!-- COMPÉTENCES                                         -->
+<!-- ================================================== -->
+<section id="skills" class="py-24 border-t border-border" aria-label="Compétences techniques">
     <div class="container mx-auto px-6">
         <div class="reveal mb-12">
-            <h2 class="section-title">Compétences Techniques</h2>
+            <h2 class="section-title" x-text="t.skillsTitle"></h2>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
+
             <div class="card p-6">
-                <p class="text-xs text-brand font-semibold uppercase tracking-widest mb-3">Langages</p>
-                <h4 class="text-white font-medium mb-2">Programmation</h4>
+                <p class="text-xs text-brand font-semibold uppercase tracking-widest mb-3" x-text="t.skillLabels.langages"></p>
+                <h4 class="text-white font-medium mb-2" x-text="t.skillLabels.programmation"></h4>
                 <p class="text-slate-400 text-sm" x-text="competences.langages"></p>
             </div>
+
             <div class="card p-6">
-                <p class="text-xs text-cyan-400 font-semibold uppercase tracking-widest mb-3">Embarqué</p>
-                <h4 class="text-white font-medium mb-2">Systèmes embarqués</h4>
+                <p class="text-xs text-cyan-400 font-semibold uppercase tracking-widest mb-3" x-text="t.skillLabels.embarque"></p>
+                <h4 class="text-white font-medium mb-2" x-text="t.skillLabels.systemes"></h4>
                 <p class="text-slate-400 text-sm" x-text="competences.embarque"></p>
             </div>
+
             <div class="card p-6">
-                <p class="text-xs text-indigo-400 font-semibold uppercase tracking-widest mb-3">Simulation</p>
-                <h4 class="text-white font-medium mb-2">Outils &amp; Prototypage</h4>
+                <p class="text-xs text-indigo-400 font-semibold uppercase tracking-widest mb-3" x-text="t.skillLabels.simulation"></p>
+                <h4 class="text-white font-medium mb-2" x-text="t.skillLabels.outils"></h4>
                 <p class="text-slate-400 text-sm" x-text="competences.simulation"></p>
             </div>
+
             <div class="card p-6">
-                <p class="text-xs text-emerald-400 font-semibold uppercase tracking-widest mb-3">Data &amp; Bureautique</p>
-                <h4 class="text-white font-medium mb-2">Outils data &amp; collaboration</h4>
+                <p class="text-xs text-emerald-400 font-semibold uppercase tracking-widest mb-3" x-text="t.skillLabels.data"></p>
+                <h4 class="text-white font-medium mb-2" x-text="t.skillLabels.collaboration"></h4>
                 <p class="text-slate-400 text-sm" x-text="competences.data"></p>
             </div>
+
             <div class="card p-6 lg:col-span-2">
-                <p class="text-xs text-amber-400 font-semibold uppercase tracking-widest mb-3">Langues</p>
+                <p class="text-xs text-amber-400 font-semibold uppercase tracking-widest mb-3" x-text="t.skillLabels.langues"></p>
                 <div class="flex flex-wrap gap-4 mt-1 items-center">
-                    <template x-for="(langue, index) in competences.langues">
+                    <template x-for="(langue, index) in competences.langues" :key="langue.nom.fr">
                         <div class="flex items-center gap-4">
                             <div>
-                                <p class="text-white font-medium text-sm" x-text="langue.nom"></p>
-                                <p class="text-slate-500 text-xs" x-text="langue.niveau"></p>
+                                <p class="text-white font-medium text-sm" x-text="langue.nom[lang]"></p>
+                                <p class="text-slate-500 text-xs" x-text="langue.niveau[lang]"></p>
                             </div>
                             <div class="w-px h-6 bg-border" x-show="index !== competences.langues.length - 1"></div>
                         </div>
@@ -413,40 +636,78 @@
     </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-24 bg-cardBg border-t border-border">
+<!-- ================================================== -->
+<!-- CONTACT                                             -->
+<!-- ================================================== -->
+<section id="contact" class="py-24 bg-cardBg border-t border-border" aria-label="Contact">
     <div class="container mx-auto px-6 max-w-2xl text-center reveal">
-        <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Contact</p>
-        <h2 class="font-display text-4xl font-bold text-white mb-5" x-text="contact.titre"></h2>
-        <p class="text-slate-400 mb-10 leading-relaxed" x-text="contact.description"></p>
+        <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-4" x-text="t.contactLabel"></p>
+        <h2 class="font-display text-4xl font-bold text-white mb-5" x-text="t.contactTitle"></h2>
+        <p class="text-slate-400 mb-10 leading-relaxed" x-text="t.contactDesc"></p>
 
-        <a :href="'mailto:' + profil.email" class="email-badge mx-auto justify-center mb-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <a :href="'mailto:' + profil.email" class="email-badge mx-auto justify-center" :aria-label="'Envoyer un e-mail à ' + profil.email">
+            <!-- Icône email -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
             <span x-text="profil.email"></span>
         </a>
+
+        <!-- Boutons LinkedIn / GitHub (décommenter et compléter les URLs) -->
+        <!--
+        <div class="flex justify-center gap-4 mt-8">
+            <a href="https://linkedin.com/in/TON-PROFIL" target="_blank" rel="noopener noreferrer"
+               class="border border-border hover:border-brand text-slate-400 hover:text-white text-sm font-medium px-5 py-2 rounded-lg transition">
+                LinkedIn
+            </a>
+            <a href="https://github.com/TON-PSEUDO" target="_blank" rel="noopener noreferrer"
+               class="border border-border hover:border-brand text-slate-400 hover:text-white text-sm font-medium px-5 py-2 rounded-lg transition">
+                GitHub
+            </a>
+        </div>
+        -->
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="border-t border-border py-8">
+<!-- ================================================== -->
+<!-- FOOTER                                              -->
+<!-- ================================================== -->
+<footer class="border-t border-border py-8" role="contentinfo">
     <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600 text-sm">
         <span class="font-display font-bold text-slate-500" x-text="profil.initiales"></span>
-        <span>© 2026 <span x-text="profil.prenom + ' ' + profil.nom"></span> — Tous droits réservés</span>
-        <span>Ingénieur Apprenti · ENSICAEN × <span x-text="profil.entreprise"></span></span>
+        <span>© 2025 <span x-text="profil.prenom + ' ' + profil.nom"></span> — <span x-text="t.footerRight"></span></span>
+        <span><span x-text="t.footerRole"></span> <span x-text="profil.entreprise"></span></span>
     </div>
 </footer>
 
+<!-- ================================================== -->
+<!-- SCRIPTS                                             -->
+<!-- ================================================== -->
 <script>
-    // Animations au scroll (s'applique une fois que le composant est monté)
+    /* Scroll reveal */
     document.addEventListener('alpine:initialized', () => {
         setTimeout(() => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) { e.target.classList.add('visible'); }
-                });
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
             }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            document.querySelectorAll('.reveal').forEach(el => io.observe(el));
         }, 100);
+    });
+
+    /* Sync <html lang=""> attribute with Alpine lang state */
+    document.addEventListener('alpine:initialized', () => {
+        const html = document.documentElement;
+        const observer = new MutationObserver(() => {});
+        // Watch lang changes via Alpine
+        document.addEventListener('alpine:mutation', () => {});
+        // Simpler: poll the body attribute Alpine sets
+        setInterval(() => {
+            const body = document.body;
+            if (body._x_dataStack) {
+                const data = body._x_dataStack[0];
+                if (data && data.lang) html.setAttribute('lang', data.lang);
+            }
+        }, 300);
     });
 </script>
 
