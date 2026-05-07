@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slimane CHABANE | Ingénieur Apprenti – Data & IA chez ACOME</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand:    '#2563eb',
+                        accent:   '#06b6d4',
+                        darkBg:   '#080f1a',
+                        cardBg:   '#101c2e',
+                        border:   '#1e2f47',
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        body:    ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Alpine.js pour la gestion des données -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- ========================================================= -->
+    <!-- DONNÉES DU SITE (MACROS)       
+    <!-- ========================================================= -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('portfolio', () => ({
+                // 1. En-tête & Profil
+                profil: {
+                    prenom: "Slimane",
+                    nom: "CHABANE",
+                    initiales: "SC.",
+                    poste: "Ingénieur Data & IA – Apprentissage chez",
+                    entreprise: "ACOME",
+                    description: "Étudiant ingénieur à l'ENSICAEN, je travaille chez ACOME sur la structuration de données industrielles, le développement d'outils métiers et l'automatisation de flux de données. Passionné par les systèmes embarqués et les défis techniques concrets.",
+                    photo: "photosli1.jpg",
+                    email: "slimane.chabane52@gmail.com"
+                },
+
+                // 2. Formations
+                formations: [
+                    {
+                        titre: "Diplôme d'Ingénieur – Électronique communicante & Systèmes Embarqués",
+                        ecole: "ENSICAEN · Caen",
+                        dates: "2025 – 2028",
+                        description: "Formation axée sur la conception de systèmes embarqués : programmation bas-niveau (C/C++), protocoles de communication, capteurs et systèmes temps réel. En alternance avec ACOME."
+                    },
+                    {
+                        titre: "Licence EEEA – Électronique, Énergie Électrique & Automatique",
+                        ecole: "Université de Caen Normandie",
+                        dates: "2022 – 2025",
+                        description: "Solide base en électronique analogique/numérique, systèmes embarqués et automatique. Réalisation de projets techniques tout au long du cursus et participation à des événements scientifiques."
+                    },
+                    {
+                        titre: "Baccalauréat Scientifique – Mention Bien",
+                        ecole: "Lycée Said Mozarine · Alger",
+                        dates: "2020",
+                        description: "" 
+                    }
+                ],
+
+                // 3. Engagement (Poste + Bénévolat)
+                engagement: {
+                    poste: {
+                        titre: "Ingénieur Data & IA – Apprentissage",
+                        entrepriseDates: "ACOME · 2025 – Actuel",
+                        description: "Structuration de données industrielles, développement d'outils métiers et automatisation de flux de données au sein d'un groupe industriel câblier."
+                    },
+                    benevolat: {
+                        titre: "Bénévole – Secours Populaire Français",
+                        dates: "Octobre 2022 – Actuel",
+                        description: "Accueil et accompagnement des bénéficiaires, distribution alimentaire, animation d'ateliers et gestion logistique des stocks."
+                    }
+                },
+
+                // 4. Projets en Entreprise (ACOME)
+                projetsEntreprise: [
+                    {
+                        icone: "🗄️",
+                        titre: "Architecture & Modélisation de base de données",
+                        description: "Migration de données industrielles dispersées vers une base relationnelle centralisée sous SeaTable. Modélisation des paramètres de 15 lignes de production et automatisation de la génération de fiches techniques (17 modèles documentaires).",
+                        tags: ["Modélisation de données", "SeaTable", "Automatisation", "Conduite du changement"],
+                        couleur: "blue" // Détermine la couleur de l'icône
+                    },
+                    {
+                        icone: "⚙️",
+                        titre: "Portail Qualité – Application Web Métier",
+                        description: "Conception d'une Single Page Application 100 % hors-ligne pour la consultation des tolérances qualité en atelier, en remplacement d'un ERP obsolète. Interface anti-erreur (Poka-Yoke), algorithmes de tri sémantique et conformité aux normes internationales IEC.",
+                        tags: ["Vanilla JS", "HTML/CSS", "UI/UX", "Poka-Yoke"],
+                        couleur: "cyan"
+                    },
+                    {
+                        icone: "🔁",
+                        titre: "Data Engineering & Automatisation des flux",
+                        description: "Développement d'un pipeline ETL assurant la liaison sécurisée entre le Bureau d'Études et les lignes de production : extraction, nettoyage et chargement automatisé des données techniques.",
+                        tags: ["ETL", "Pipeline de données", "Nettoyage de données"],
+                        couleur: "indigo"
+                    }
+                ],
+
+                // 5. Projets Personnels/Académiques
+                projetsPerso: [
+                    {
+                        titre: "CLOBOT 1.0 – Voiture autonome de livraison",
+                        date: "2025",
+                        description: "Robot suiveur de ligne à deux modes de conduite (automatique / télécommandé) : vision par caméra ESP32-CAM, tapis roulant embarqué, contrôle Arduino. Projet réalisé en équipe dans le cadre du cursus ingénieur.",
+                        borderClass: "border-l-brand"
+                    },
+                    {
+                        titre: "Système de comptage de personnes",
+                        date: "2024",
+                        description: "Système autonome de mesure de flux : barrières laser, photorésistances, microcontrôleur Arduino Nano et affichage 7 segments. Conçu pour mesurer et afficher le nombre de personnes présentes dans un espace en temps réel.",
+                        borderClass: "border-l-accent"
+                    }
+                ],
+
+                // 6. Compétences Techniques
+                competences: {
+                    langages: "C, Python, Assembleur, MATLAB, LaTeX",
+                    embarque: "STM32, EFM8SB1, ESP32, Arduino – protocoles SPI, I²C, UART, CAN",
+                    simulation: "LTSpice, Simulink, SolidWorks",
+                    data: "Excel, PowerPoint, Word, SeaTable",
+                    langues: [
+                        { nom: "Français", niveau: "Bilingue" },
+                        { nom: "Arabe", niveau: "Langue maternelle" },
+                        { nom: "Anglais", niveau: "Niveau professionnel" }
+                    ]
+                },
+
+                // 7. Contact (Textes Neutres et Professionnels)
+                contact: {
+                    titre: "Me contacter",
+                    description: ""
+                }
+            }))
+        })
+    </script>
+
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: #080f1a; color: #94a3b8; }
+
+        /* ---- Grain overlay ---- */
+        body::before {
+            content: '';
+            position: fixed; inset: 0; pointer-events: none; z-index: 999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+            opacity: 0.4;
+        }
+
+        /* ---- Glow orbs ---- */
+        .orb {
+            position: absolute; border-radius: 9999px;
+            filter: blur(120px); pointer-events: none; z-index: 0;
+        }
+
+        /* ---- Section fade-in ---- */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ---- Timeline ---- */
+        .timeline-item { border-left: 2px solid #1e2f47; padding-left: 1.5rem; position: relative; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -5px; top: 6px;
+            width: 8px; height: 8px; border-radius: 9999px;
+            background: #2563eb; border: 2px solid #080f1a;
+        }
+
+        /* ---- Tag ---- */
+        .tag {
+            display: inline-block; padding: 3px 12px; font-size: .72rem; font-weight: 500;
+            border-radius: 999px; border: 1px solid #1e2f47; color: #64748b;
+            background: #0d1a2d; transition: border-color .2s, color .2s;
+        }
+        .tag:hover { border-color: #2563eb; color: #93c5fd; }
+
+        /* ---- Card ---- */
+        .card {
+            background: #101c2e; border: 1px solid #1e2f47; border-radius: 16px;
+            transition: border-color .3s, box-shadow .3s;
+        }
+        .card:hover { border-color: #2563eb40; box-shadow: 0 0 40px #2563eb15; }
+
+        /* ---- Email placeholder ---- */
+        .email-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 10px;
+            border: 1px dashed #2563eb80; background: #0d1a2d;
+            color: #60a5fa; font-size: .85rem; font-weight: 500;
+            cursor: pointer; transition: background .2s, border-color .2s;
+        }
+        .email-badge:hover { background: #1e2f47; border-color: #2563eb; }
+
+        h2.section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem; font-weight: 700; color: #f1f5f9;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ---- Smooth underline on nav links ---- */
+        nav a.nav-link { position: relative; padding-bottom: 2px; }
+        nav a.nav-link::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 0; height: 1px; background: #2563eb;
+            transition: width .25s ease;
+        }
+        nav a.nav-link:hover::after { width: 100%; }
+    </style>
+</head>
+
+<body x-data="portfolio">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border/50" style="background:rgba(8,15,26,.85)">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <span class="font-display font-bold text-white text-lg tracking-tight" x-text="profil.initiales"></span>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="#about" class="nav-link hover:text-white transition">Formation</a>
+            <a href="#projects" class="nav-link hover:text-white transition">Expériences</a>
+            <a href="#skills" class="nav-link hover:text-white transition">Compétences</a>
+            <a href="#contact" class="nav-link hover:text-white transition">Contact</a>
+        </div>
+        <a href="#contact" class="text-sm font-semibold px-5 py-2 rounded-lg border border-brand text-brand hover:bg-brand hover:text-white transition duration-250">
+            Me contacter
+        </a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="orb w-96 h-96 bg-blue-600/20 top-20 -left-32"></div>
+    <div class="orb w-72 h-72 bg-cyan-500/10 bottom-20 right-10"></div>
+
+    <div class="container mx-auto px-6 relative z-10 flex flex-col-reverse md:flex-row items-center gap-16">
+        <div class="md:w-3/5">
+            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Portfolio Professionnel</p>
+            <h1 class="font-display text-5xl md:text-6xl font-extrabold text-white leading-[1.1] mb-6">
+                <span x-text="profil.prenom"></span><br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-accent" x-text="profil.nom"></span>
+            </h1>
+            <div class="inline-flex items-center gap-3 bg-cardBg border border-border rounded-xl px-5 py-3 mb-6">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                <span class="text-white font-medium text-sm"><span x-text="profil.poste"></span> <span class="text-accent font-bold" x-text="profil.entreprise"></span></span>
+            </div>
+            <p class="text-slate-400 text-lg leading-relaxed max-w-xl mb-10" x-text="profil.description"></p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#projects" class="bg-brand hover:bg-blue-700 text-white font-semibold py-3 px-7 rounded-lg transition duration-250">
+                    Voir mes projets
+                </a>
+                <a href="#contact" class="border border-border hover:border-brand text-slate-300 hover:text-white font-semibold py-3 px-7 rounded-lg transition duration-250">
+                    Me contacter
+                </a>
+            </div>
+        </div>
+        <div class="md:w-2/5 flex justify-center">
+            <div class="relative">
+                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-brand/30 to-accent/20 blur-2xl scale-110"></div>
+                <img :src="profil.photo" :alt="profil.prenom + ' ' + profil.nom" class="relative w-56 h-56 md:w-72 md:h-72 object-cover rounded-full border-2 border-border shadow-2xl">
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- FORMATION & BÉNÉVOLAT -->
+<section id="about" class="py-24 bg-cardBg border-t border-border">
+    <div class="container mx-auto px-6 grid md:grid-cols-3 gap-16">
+        <div class="md:col-span-2 reveal">
+            <h2 class="section-title">Parcours Académique</h2>
+            <div class="space-y-10">
+                <template x-for="formation in formations">
+                    <div class="timeline-item">
+                        <h3 class="text-white font-semibold text-lg" x-text="formation.titre"></h3>
+                        <p class="text-brand text-sm font-medium mt-1 mb-3">
+                            <span x-text="formation.ecole"></span> &nbsp;|&nbsp; <span x-text="formation.dates"></span>
+                        </p>
+                        <p class="text-slate-400 text-sm leading-relaxed" x-show="formation.description !== ''" x-text="formation.description"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="reveal">
+            <h2 class="section-title">Engagement</h2>
+            <!-- Poste -->
+            <div class="card p-6 mb-6">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    <span class="text-green-400 text-xs font-semibold uppercase tracking-wide">En poste</span>
+                </div>
+                <h3 class="text-white font-semibold" x-text="engagement.poste.titre"></h3>
+                <p class="text-brand text-sm font-medium my-1" x-text="engagement.poste.entrepriseDates"></p>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2" x-text="engagement.poste.description"></p>
+            </div>
+            <!-- Bénévolat -->
+            <div class="card p-6">
+                <h3 class="text-white font-semibold" x-text="engagement.benevolat.titre"></h3>
+                <p class="text-brand text-sm font-medium my-1" x-text="engagement.benevolat.dates"></p>
+                <p class="text-slate-400 text-sm leading-relaxed mt-2" x-text="engagement.benevolat.description"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPÉRIENCES EN ENTREPRISE -->
+<section id="projects" class="py-24">
+    <div class="container mx-auto px-6">
+        <div class="reveal mb-12">
+            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-2" x-text="'Alternance chez ' + profil.entreprise"></p>
+            <h2 class="section-title mb-3">Projets en Entreprise</h2>
+            <p class="text-slate-500 text-sm max-w-2xl">Missions réalisées dans le cadre de mon apprentissage.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6 reveal">
+            <template x-for="projet in projetsEntreprise">
+                <div class="card p-7 flex flex-col">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl"
+                         :class="{
+                            'bg-blue-600/20 text-brand': projet.couleur === 'blue',
+                            'bg-cyan-600/20 text-accent': projet.couleur === 'cyan',
+                            'bg-indigo-600/20 text-indigo-400': projet.couleur === 'indigo'
+                         }" x-text="projet.icone"></div>
+                    <h3 class="text-white font-semibold text-lg mb-3" x-text="projet.titre"></h3>
+                    <p class="text-slate-400 text-sm leading-relaxed flex-grow mb-6" x-text="projet.description"></p>
+                    <div class="flex flex-wrap gap-2">
+                        <template x-for="tag in projet.tags">
+                            <span class="tag" x-text="tag"></span>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>
+
+<!-- PROJETS ACADÉMIQUES & PERSONNELS -->
+<section class="py-24 bg-cardBg border-t border-border">
+    <div class="container mx-auto px-6">
+        <div class="reveal mb-12">
+            <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-2">Hors entreprise</p>
+            <h2 class="section-title">Projets Académiques &amp; Personnels</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 reveal">
+            <template x-for="projet in projetsPerso">
+                <div class="card p-7 border-l-4" :class="projet.borderClass">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-white font-semibold text-lg" x-text="projet.titre"></h3>
+                        <span class="text-xs font-bold bg-darkBg text-slate-400 px-3 py-1 rounded-full border border-border" x-text="projet.date"></span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed" x-text="projet.description"></p>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="skills" class="py-24 border-t border-border">
+    <div class="container mx-auto px-6">
+        <div class="reveal mb-12">
+            <h2 class="section-title">Compétences Techniques</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
+            <div class="card p-6">
+                <p class="text-xs text-brand font-semibold uppercase tracking-widest mb-3">Langages</p>
+                <h4 class="text-white font-medium mb-2">Programmation</h4>
+                <p class="text-slate-400 text-sm" x-text="competences.langages"></p>
+            </div>
+            <div class="card p-6">
+                <p class="text-xs text-cyan-400 font-semibold uppercase tracking-widest mb-3">Embarqué</p>
+                <h4 class="text-white font-medium mb-2">Systèmes embarqués</h4>
+                <p class="text-slate-400 text-sm" x-text="competences.embarque"></p>
+            </div>
+            <div class="card p-6">
+                <p class="text-xs text-indigo-400 font-semibold uppercase tracking-widest mb-3">Simulation</p>
+                <h4 class="text-white font-medium mb-2">Outils &amp; Prototypage</h4>
+                <p class="text-slate-400 text-sm" x-text="competences.simulation"></p>
+            </div>
+            <div class="card p-6">
+                <p class="text-xs text-emerald-400 font-semibold uppercase tracking-widest mb-3">Data &amp; Bureautique</p>
+                <h4 class="text-white font-medium mb-2">Outils data &amp; collaboration</h4>
+                <p class="text-slate-400 text-sm" x-text="competences.data"></p>
+            </div>
+            <div class="card p-6 lg:col-span-2">
+                <p class="text-xs text-amber-400 font-semibold uppercase tracking-widest mb-3">Langues</p>
+                <div class="flex flex-wrap gap-4 mt-1 items-center">
+                    <template x-for="(langue, index) in competences.langues">
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <p class="text-white font-medium text-sm" x-text="langue.nom"></p>
+                                <p class="text-slate-500 text-xs" x-text="langue.niveau"></p>
+                            </div>
+                            <div class="w-px h-6 bg-border" x-show="index !== competences.langues.length - 1"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-cardBg border-t border-border">
+    <div class="container mx-auto px-6 max-w-2xl text-center reveal">
+        <p class="text-brand text-sm font-semibold uppercase tracking-widest mb-4">Contact</p>
+        <h2 class="font-display text-4xl font-bold text-white mb-5" x-text="contact.titre"></h2>
+        <p class="text-slate-400 mb-10 leading-relaxed" x-text="contact.description"></p>
+
+        <a :href="'mailto:' + profil.email" class="email-badge mx-auto justify-center mb-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span x-text="profil.email"></span>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-border py-8">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600 text-sm">
+        <span class="font-display font-bold text-slate-500" x-text="profil.initiales"></span>
+        <span>© 2026 <span x-text="profil.prenom + ' ' + profil.nom"></span> — Tous droits réservés</span>
+        <span>Ingénieur Apprenti · ENSICAEN × <span x-text="profil.entreprise"></span></span>
+    </div>
+</footer>
+
+<script>
+    // Animations au scroll (s'applique une fois que le composant est monté)
+    document.addEventListener('alpine:initialized', () => {
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, 100);
+    });
+</script>
+
+</body>
+</html>
